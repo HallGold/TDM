@@ -27,8 +27,3 @@ node_modules
 # Users Environment Variables
 .lock-wscript
 *.idea
-
-# 过滤config.js
-vue.config.js
-.vscode
-tdm

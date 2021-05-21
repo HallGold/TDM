@@ -1,0 +1,511 @@
+<template>
+  <div class="container-box">
+    <div class="content_box">
+      <div class="onBox">
+        <div class="on_leftBox">
+          <div class="DataList">
+            <ul>
+              <li>
+                <div class="icon">
+                  <span style="background-color: #1E78B9;"><img src="./images/设备图标.png"
+                         alt="" /></span>
+                </div>
+                <div class="text">
+                  <span>实验订单数</span>
+                  <span><i style="font-size:20px;color:#DCC148; font-weight: bold;">100</i>单</span>
+                </div>
+              </li>
+              <li>
+                <div class="icon">
+                  <span style="background-color: #379548;border:1px solid #4D799F"><img src="./images/设备图标.png"
+                         alt="" /></span>
+                </div>
+                <div class="text">
+                  <span>实验预约待确认</span>
+                  <span><i style="font-size:20px;color:#DCC148;font-weight: bold;">37</i>单</span>
+                </div>
+              </li>
+              <li>
+                <div class="icon">
+                  <span style="background-color: #1A81C6;"><img src="./images/设备图标.png"
+                         alt="" /></span>
+                </div>
+                <div class="text">
+                  <span>当天实验完成情况</span>
+                  <span><i style="font-size:20px;color:#DCC148;font-weight: bold;">18</i>单</span>
+                </div>
+              </li>
+              <li>
+                <div class="icon">
+                  <span style="background-color: #3761B7;"><img src="./images/设备图标.png"
+                         alt="" /></span>
+                </div>
+                <div class="text">
+                  <span>实验进行中</span>
+                  <span><i style="font-size:20px;color:#DCC148;font-weight: bold;">2</i>单</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="lineChart-columnChart">
+            <div class="lineChart">
+              <h3 class="chart-title">实验项目环比(月)</h3>
+              <div class="myChart-line">
+                <lineChart></lineChart>
+              </div>
+            </div>
+            <div class="columnChart">
+              <h3 class="chart-title">过去一周实验状态</h3>
+              <div class="myChart-column">
+                <column-chart></column-chart>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="on_right-Box">
+          <div class="PieChart">
+            <h3 class="chart-title">总实验完成率(月)</h3>
+            <div class="myChart-Pie">
+              <pie-chart></pie-chart>
+            </div>
+          </div>
+          <div class="announcement">
+            <h3 class="chart-title">通知公告</h3>
+            <div class="announcementList">
+              <ul>
+                <li>
+                  <span>2020年8月26日xx实验检测项目完成</span>
+                  <span>2020-7-14</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="underBox">
+        <div class="under_leftBox">
+          <div class="grade">
+            <h3 class="chart-title">班组实验完成率排名</h3>
+            <div class="gradeList">
+              <ul>
+                <li>
+                  <span> <i style="background-color: lightsalmon;"></i> 1</span>
+                  <span>A班组</span>
+                  <span>98%</span>
+                </li>
+                <li>
+                  <span> <i style="background-color: #FFC125;"></i> 2</span>
+                  <span>B班组</span>
+                  <span>98%</span>
+                </li>
+                <li>
+                  <span> <i style="background-color: #1E90FF;"></i> 3</span>
+                  <span>C班组</span>
+                  <span>98%</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="under_right-Box">
+          <h3 class="chart-title">实验进度未完成详情</h3>
+          <div class="Table">
+            <template>
+              <el-table :data="tableData"
+                        style="width: 100%">
+                <el-table-column prop="date"
+                                 label="任务单编号"
+                                 width="180">
+                </el-table-column>
+                <el-table-column prop="name"
+                                 label="测试项目"
+                                 width="180">
+                </el-table-column>
+                <el-table-column prop="name"
+                                 label="实验室编号"
+                                 width="180">
+                </el-table-column>
+                <el-table-column prop="name"
+                                 label="样品编号"
+                                 width="180">
+                </el-table-column>
+                <el-table-column prop="name"
+                                 label="样品名称"
+                                 width="180">
+                </el-table-column>
+                <el-table-column prop="name"
+                                 label="实验人员"
+                                 width="180">
+                </el-table-column>
+                <el-table-column prop="name"
+                                 label="检测设备"
+                                 width="180">
+                </el-table-column>
+              </el-table>
+            </template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+import lineChart from "@/pages/tdm/gxpt/xxfb/chart_Management/lineChart.vue"; //线图
+import ColumnChart from "@/pages/tdm/gxpt/xxfb/chart_Management/ColumnChart.vue"; //柱图
+import PieChart from "@/pages/tdm/gxpt/xxfb/chart_Management/PieChart.vue"; //饼图
+export default {
+  name: "ManagementAnalysis",
+  components: { lineChart, ColumnChart, PieChart },
+  data () {
+    return {
+      tableData: [
+        {
+          date: "1",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1518 弄",
+        },
+        {
+          date: "2",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1518 弄",
+        },
+        {
+          date: "3",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1518 弄",
+        },
+        {
+          date: "4",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1518 弄",
+        },
+      ],
+    };
+  },
+};
+</script>
+<style lang="less" scoped>
+.container-box {
+  width: 100%;
+  height: 100%;
+  .content_box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    box-sizing: border-box;
+    .onBox {
+      width: 100%;
+      flex: 3;
+      display: flex;
+      .on_leftBox {
+        flex: 2.8;
+        display: flex;
+        flex-direction: column;
+        .DataList {
+          flex: 1;
+          ul {
+            display: flex;
+            justify-content: space-between;
+            box-sizing: border-box;
+            li {
+              width: 290px;
+              height: 110px;
+              margin-right: 10px;
+              border-radius: 8px;
+              display: flex;
+              &:nth-child(1) {
+                background-color: #0d6aa5;
+              }
+              &:nth-child(2) {
+                background-color: #187b28;
+              }
+              &:nth-child(3) {
+                background-color: #196ac5;
+              }
+              &:nth-child(4) {
+                margin-right: 0;
+                background-color: #27479e;
+              }
+              .icon {
+                flex: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                span {
+                  width: 70px;
+                  height: 70px;
+                  border-radius: 50%;
+                  text-align: center;
+                  line-height: 85px;
+                  img {
+                    width: 36px;
+                    height: 32px;
+                  }
+                }
+              }
+              .text {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                color: #fff;
+                font-size: 14px;
+              }
+            }
+          }
+        }
+        .lineChart-columnChart {
+          flex: 3.2;
+          display: flex;
+          box-sizing: border-box;
+          .lineChart {
+            flex: 1;
+            background: url('./images/实验项目环比 总设备运行时长边框.png') no-repeat;
+            margin-right: 15px;
+            background-size: 100% 100%;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-sizing: border-box;
+
+            .chart-title {
+              width: 100%;
+              height: 90px;
+              font-size: 25px;
+              color: #4d799f;
+              text-align: center;
+              line-height: 90px;
+            }
+            .myChart-line {
+              padding: 20px;
+              box-sizing: border-box;
+              width: 100%;
+              height: 300px;
+            }
+          }
+          .columnChart {
+            flex: 1;
+            background: url('./images/过去一周实验状态过去一周实验状态边框.png') no-repeat;
+            background-size: 100% 100%;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-sizing: border-box;
+            .chart-title {
+              height: 90px;
+              font-size: 25px;
+              color: #4d799f;
+              text-align: center;
+              line-height: 90px;
+            }
+            .myChart-column {
+              width: 100%;
+              height: 300px;
+              padding: 20px;
+              box-sizing: border-box;
+            }
+          }
+        }
+      }
+      .on_right-Box {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        padding-left: 15px;
+        .PieChart {
+          flex: 1;
+          background: url('./images/总实验完成率 总设备利用率及通知公告边框.png') no-repeat;
+          background-size: 100% 100%;
+          margin-bottom: 25px;
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
+          box-sizing: border-box;
+          .chart-title {
+            height: 20px;
+            font-size: 20px;
+            color: #4d799f;
+            text-align: center;
+            line-height: 40px;
+          }
+          .myChart-Pie {
+            width: 100%;
+            height: 230px;
+            padding: 20px;
+            box-sizing: border-box;
+          }
+        }
+        .announcement {
+          flex: 1;
+          background: url('./images/总实验完成率 总设备利用率及通知公告边框.png') no-repeat;
+          background-size: 100% 100%;
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
+          box-sizing: border-box;
+          .chart-title {
+            height: 60px;
+            font-size: 20px;
+            color: #4d799f;
+            text-align: center;
+            line-height: 60px;
+          }
+          .announcementList {
+            width: 100%;
+            height: 100%;
+            ul {
+              width: 100%;
+              height: 100%;
+              li {
+                display: flex;
+                justify-content: space-between;
+                padding: 0 25px;
+                box-sizing: border-box;
+                color: #fff;
+                span {
+                  &:nth-child(1) {
+                    position: relative;
+                    &::before {
+                      content: '';
+                      display: block;
+                      width: 10px;
+                      height: 10px;
+                      border-radius: 50%;
+                      background-color: #fff;
+                      position: absolute;
+                      left: -15px;
+                      top: 6px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .underBox {
+      width: 100%;
+      flex: 1.4;
+      display: flex;
+      box-sizing: border-box;
+      .under_leftBox {
+        flex: 1;
+        margin-right: 20px;
+        .grade {
+          width: 100%;
+          height: 100%;
+          background: url('./images/班组实验完成率 设备利用率 闲置时长排名边框.png') no-repeat;
+          background-size: 100% 100%;
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
+          box-sizing: border-box;
+          .chart-title {
+            height: 60px;
+            font-size: 20px;
+            color: #4d799f;
+            text-align: center;
+            line-height: 60px;
+          }
+          .gradeList {
+            width: 100%;
+            height: 100%;
+            ul {
+              width: 100%;
+              height: 100%;
+              li {
+                display: flex;
+                justify-content: space-between;
+                color: #fff;
+                text-align: center;
+                margin-bottom: 10px;
+                span {
+                  &:nth-child(1) {
+                    flex: 0.5;
+                    position: relative;
+                    z-index: 1;
+                    i {
+                      display: block;
+                      width: 20px;
+                      height: 20px;
+                      position: absolute;
+                      top: 1px;
+                      left: 32px;
+                      border-radius: 50%;
+                      z-index: -1;
+                    }
+                  }
+                  &:nth-child(2) {
+                    flex: 1;
+                    text-align: left;
+                  }
+                  &:nth-child(3) {
+                    flex: 1;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .under_right-Box {
+        flex: 3;
+        width: 100%;
+        height: 100%;
+        background: url('./images/实验进度未完成详情边框.png') no-repeat;
+        background-size: 100% 100%;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        box-sizing: border-box;
+        .chart-title {
+          height: 45px;
+          font-size: 20px;
+          color: #4d799f;
+          text-align: center;
+          line-height: 45px;
+        }
+        .Table {
+          width: 100%;
+          height: 100%;
+          padding: 0 10px;
+          padding-bottom: 18px;
+          box-sizing: border-box;
+        }
+      }
+    }
+  }
+}
+/deep/tr {
+  background-color: #0c1c45 !important;
+  color: #fff;
+  pointer-events: none;
+}
+/deep/th {
+  background-color: #0c1c45 !important;
+  border-bottom: 1px solid #4f4f4f !important;
+}
+/deep/td {
+  border-bottom: 1px solid #4f4f4f;
+}
+/deep/.cell {
+  color: #b5b5b5;
+  text-align: center !important;
+}
+/deep/.has-gutter {
+  background-color: #0c1c45 !important;
+}
+.el-table {
+  border: 1px solid #0c1c45;
+  &::before {
+    height: 0;
+  }
+}
+/deep/.el-table--scrollable-x .el-table__body-wrapper {
+  overflow: visible;
+}
+</style>
