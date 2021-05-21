@@ -1,0 +1,570 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:宋体;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:宋体;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"\@宋体";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:10.5pt;
+	font-family:"Calibri","sans-serif";}
+h1
+	{mso-style-link:"标题 1 Char";
+	margin-top:17.0pt;
+	margin-right:0cm;
+	margin-bottom:16.5pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:240%;
+	page-break-after:avoid;
+	font-size:22.0pt;
+	font-family:"Calibri","sans-serif";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+pre
+	{mso-style-link:"HTML 预设格式 Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:宋体;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"批注框文本 Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:9.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	text-indent:21.0pt;
+	font-size:10.5pt;
+	font-family:"Calibri","sans-serif";}
+span.1Char
+	{mso-style-name:"标题 1 Char";
+	mso-style-link:"标题 1";
+	font-weight:bold;}
+span.HTMLChar
+	{mso-style-name:"HTML 预设格式 Char";
+	mso-style-link:"HTML 预设格式";
+	font-family:宋体;}
+span.object-value-string
+	{mso-style-name:object-value-string;}
+span.object-value-string-quote
+	{mso-style-name:object-value-string-quote;}
+span.Char
+	{mso-style-name:"批注框文本 Char";
+	mso-style-link:批注框文本;}
+.MsoChpDefault
+	{font-family:"Calibri","sans-serif";}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	layout-grid:15.6pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<h1 align=center style='text-align:center'><span style='font-family:宋体'>流程环节脚本说明</span></h1>
+
+<p class=MsoListParagraph style='margin-left:15.75pt;text-indent:-15.75pt'><b>1．<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></b><b><span
+style='font-family:宋体'>脚本引擎内置变量</span></b></p>
+
+<p class=MsoNormal>var&nbsp; flowContext={};//<span style='font-family:宋体'>流程上下文对象</span></p>
+
+<p class=MsoNormal><span lang=EN-US>var&nbsp; bizData={};//</span><span
+style='font-family:宋体'>业务对象</span></p>
+
+<pre style='background:white'><span lang=EN-US style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>var&nbsp; returnCode=1;</span><i><span
+lang=EN-US style='color:gray'> </span></i><span lang=EN-US style='font-size:
+10.5pt;font-family:"Calibri","sans-serif"'>//0 </span><span style='font-size:
+10.5pt'>失败，有提示</span><span lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>&nbsp;&nbsp;&nbsp; 1</span><span
+style='font-size:10.5pt'>成功继续</span><span lang=EN-US style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>&nbsp;&nbsp;&nbsp;&nbsp; 2</span><span
+style='font-size:10.5pt'>成功但不继续执行</span></pre><pre style='background:white'><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri","sans-serif"'>var&nbsp; resultMsg=””;//</span><span
+style='font-size:10.5pt'>不继续运行时消息提醒</span></pre><pre style='background:white'><span
+lang=EN-US style='color:black'>&nbsp;</span></pre><pre style='background:white'><b><span
+lang=EN-US style='color:black'>2.</span><span style='color:black'>脚本引擎内置方法</span></b></pre>
+
+<p class=MsoNormal><span lang=EN-US>HTTP.get(“url”);//</span><span
+style='font-family:宋体'>发送一个</span><span lang=EN-US>get</span><span
+style='font-family:宋体'>网络请求</span><span lang=EN-US>&nbsp; </span><span
+style='font-family:宋体'>入参</span><span style='font-family:宋体'>：</span><span
+lang=EN-US>url</span><span style='font-family:宋体'>地址</span></p>
+
+<p class=MsoNormal><span lang=EN-US>HTTP.post (“url”,object);//</span><span
+style='font-family:宋体'>发送一个</span><span lang=EN-US>post</span><span
+style='font-family:宋体'>网络请求入参</span><span style='font-family:宋体'>：</span><span
+lang=EN-US>url</span><span style='font-family:宋体'>地址</span><span lang=EN-US>,post</span><span
+style='font-family:宋体'>数据对象</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;background:white'><span
+lang=EN-US>System.out.print(“-----”);//</span><span style='font-family:宋体'>输出打印控制台</span></p>
+
+<p class=MsoNormal><span lang=EN-US>ProcessUtils. hasClaim(</span><span
+style='font-family:宋体'>“</span><span lang=EN-US>actInstId</span><span
+style='font-family:宋体'>”，“</span><span lang=EN-US>nodeId</span><span
+style='font-family:宋体'>”</span><span lang=EN-US>);//</span><span
+style='font-family:宋体'>判定当前流程环节任务是否被领取</span> <span style='font-family:宋体'>返回</span><span
+lang=EN-US> true </span><span style='font-family:宋体'>或</span><span lang=EN-US>false</span></p>
+
+<pre style='background:white'><span lang=EN-US style='color:black'>ProcessUtils.startFlow(“flowcontent”);// </span><span
+style='color:black'>发起一个流程 &nbsp;</span></pre><pre style='background:white'><span
+style='color:black'>注：<span lang=EN-US>flowcontent</span>为<span lang=EN-US>json</span>格式的字符串<span
+lang=EN-US>&nbsp;&nbsp; flowcontent</span>对象的属性请参考后面</span></pre>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-size:12.0pt;font-family:
+宋体;color:black'>3.</span></b><b><span style='font-size:12.0pt;font-family:宋体;
+color:black'>脚本引擎示例</span></b></p>
+
+<p class=MsoNormal><span style='font-family:宋体'>示例</span><span lang=EN-US>1</span><span
+style='font-family:宋体'>：改变业务对象的值，并发送一个网络请求（业务对象里的</span><span lang=EN-US>a</span><span
+style='font-family:宋体'>赋值‘</span><span lang=EN-US>tianding</span><span
+style='font-family:宋体'>’，发送</span><span lang=EN-US>post</span><span
+style='font-family:宋体'>请求并传递了三个参数</span> <span style='font-family:宋体'>分别是流程上下文，业务对象和回调地址）</span></p>
+
+<p class=MsoNormal><span lang=EN-US>bizData.a=&quot;tianding&quot;;HTTP.post(&quot;http://localhost:8071/bpm/common/callback&quot;,{&quot;flowContext&quot;:flowContext,&quot;bizData&quot;:bizData,&quot;callClass&quot;:&quot;cn.icepanda.biz.software.flow.BizDefaultService&quot;})</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-family:宋体'>示例</span><span lang=EN-US>2</span><span
+style='font-family:宋体'>：发送一个</span><span lang=EN-US>HTTP</span><span
+style='font-family:宋体'>的</span><span lang=EN-US>get</span><span
+style='font-family:宋体'>请求根据返回结果判定当前流程是否继续执行</span><span lang=EN-US>,</span><span
+style='font-family:宋体'>不继续执行时返回“掉接口报错啦”</span></p>
+
+<pre style='background:white'><span lang=EN-US>var result=HTTP.get(&quot;http://localhost:8071/bpm/definition/get?id=9ac39438613742ffb0eea252fb924b0c&quot;);<span
+style='color:black'> </span>if(result.code==1){</span><span lang=EN-US
+style='font-size:10.5pt;font-family:"Calibri","sans-serif"'> returnCode</span><span
+lang=EN-US>=1}else{</span><span lang=EN-US style='font-size:10.5pt;font-family:
+"Calibri","sans-serif"'> returnCode</span><span lang=EN-US> =0;resultMsg=&quot;</span>掉接口报错啦<span
+lang=EN-US>&quot;;}</span></pre>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-family:宋体'>示例</span><span lang=EN-US>3</span><span
+style='font-family:宋体'>：调流程引擎内置方法，查询当前环节任务是否被领取并打印输出结果</span></p>
+
+<pre style='background:white'><span lang=EN-US style='color:black'>var hasClaim=ProcessUtils.hasClaim(flowContext.actInstId,flowContext.nodeId);System.out.print(&quot;-------</span><span
+style='color:black'>返回结果<span lang=EN-US>-------&quot;+hasClaim);</span></span></pre><pre
+style='background:white'><span lang=EN-US style='color:black'>&nbsp;</span></pre>
+
+<p class=MsoNormal><span style='font-family:宋体'>示例</span><span lang=EN-US>4</span><span
+style='font-family:宋体'>：脚本里发起子流程</span> <span style='font-family:宋体'>，并打印结果，注意如果发起的是同步子流程，请</span><span
+lang=EN-US>returnCode</span><span style='font-family:宋体'>设置为</span><span
+lang=EN-US>2</span></p>
+
+<pre style='background:white'><span lang=EN-US style='color:black'>var context=ProcessUtils.startFlow</span></pre><pre
+style='background:white'><span lang=EN-US style='color:black'>(JSON.stringify({&quot;actDefKey&quot;:&quot;TEST_TIANDING_07&quot;,&quot;flowComment&quot;:&quot;strin&quot;,&quot;flowMessage&quot;:&quot;string&quot;,&quot;operateType&quot;:&quot;submit&quot;,&quot;operater&quot;:&quot;tianding&quot;}));System.out.print(&quot;-------</span><span
+style='color:black'>返回结果<span lang=EN-US>------&quot;+JSON.stringify(context));</span></span><span
+lang=EN-US>returnCode=2;</span></pre><pre style='background:white'><span
+lang=EN-US style='color:black'>&nbsp;</span></pre><pre style='background:white'><span
+lang=EN-US style='color:black'>&nbsp;</span></pre><pre style='background:white'><b><span
+lang=EN-US style='color:black'>4.</span><span style='color:black'>脚本引擎中自带变量详细属性说明</span></b></pre><pre
+style='background:white'><b><span lang=EN-US style='color:black'>&nbsp;</span></b></pre><pre
+style='background:white'><b><span lang=EN-US style='font-size:10.5pt;
+font-family:"Calibri","sans-serif"'>//</span></b><b><span style='font-size:
+10.5pt'>流程上下文对象</span></b></pre>
+
+<p class=MsoNormal align=left style='text-align:left;background:white'><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:#660E7A'>flowContext</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>: {<br>
+&nbsp;&nbsp;&nbsp; </span><b><span lang=EN-US style='font-size:12.0pt;
+font-family:宋体;color:#660E7A'>actDefName</span></b><span lang=EN-US
+style='font-size:12.0pt;font-family:宋体;color:black'>: </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:green'>&quot;&quot;</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>,//</span><span
+style='font-size:12.0pt;font-family:宋体;color:black'>流程名<span lang=EN-US><br>
+&nbsp;&nbsp;&nbsp; </span></span><a name="OLE_LINK6"></a><a name="OLE_LINK5"><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:#660E7A'>actInstId</span></b></a><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>: </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:green'>&quot;72507&quot;</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>,//</span><span
+style='font-size:12.0pt;font-family:宋体;color:black'>实例<span lang=EN-US>ID<br>
+&nbsp;&nbsp;&nbsp; </span></span><b><span lang=EN-US style='font-size:12.0pt;
+font-family:宋体;color:#660E7A'>actDefId</span></b><span lang=EN-US
+style='font-size:12.0pt;font-family:宋体;color:black'>: </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:green'>&quot;72507&quot;</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>,//</span><span
+style='font-size:12.0pt;font-family:宋体;color:black'>流程定义<span lang=EN-US>ID<br>
+&nbsp;&nbsp;&nbsp; </span></span><b><span lang=EN-US style='font-size:12.0pt;
+font-family:宋体;color:#660E7A'>dataId</span></b><span lang=EN-US
+style='font-size:12.0pt;font-family:宋体;color:black'>: </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:navy'>null</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>,//</span><span
+style='font-size:12.0pt;font-family:宋体;color:black'>业务数据<span lang=EN-US>ID<br>
+&nbsp;&nbsp;&nbsp; </span></span><b><span lang=EN-US style='font-size:12.0pt;
+font-family:宋体;color:#660E7A'>nodeId</span></b><span lang=EN-US
+style='font-size:12.0pt;font-family:宋体;color:black'>: </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:green'>&quot;FirstNode&quot;</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>,//</span><span
+style='font-size:12.0pt;font-family:宋体;color:black'>环节<span lang=EN-US>ID<br>
+&nbsp;&nbsp;&nbsp; </span></span><b><span lang=EN-US style='font-size:12.0pt;
+font-family:宋体;color:#660E7A'>formId</span></b><span lang=EN-US
+style='font-size:12.0pt;font-family:宋体;color:black'>: </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:navy'>null</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>,//</span><span
+style='font-size:12.0pt;font-family:宋体;color:black'>业务表单打开<span lang=EN-US>url<br>
+&nbsp;&nbsp;&nbsp; </span></span><b><span lang=EN-US style='font-size:12.0pt;
+font-family:宋体;color:#660E7A'>executionId</span></b><span lang=EN-US
+style='font-size:12.0pt;font-family:宋体;color:black'>: </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:navy'>null</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>,//</span><span
+style='font-size:12.0pt;font-family:宋体;color:black'>执行线<span lang=EN-US>ID<br>
+&nbsp;&nbsp;&nbsp; </span></span><b><span lang=EN-US style='font-size:12.0pt;
+font-family:宋体;color:#660E7A'>taskUserId</span></b><span lang=EN-US
+style='font-size:12.0pt;font-family:宋体;color:black'>: </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:navy'>null</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>,//</span><span
+style='font-size:12.0pt;font-family:宋体;color:black'>用户任务<span lang=EN-US>ID</span>（当前任务<span
+lang=EN-US>ID</span>）<span lang=EN-US><br>
+&nbsp;&nbsp;&nbsp; </span></span><b><span lang=EN-US style='font-size:12.0pt;
+font-family:宋体;color:#660E7A'>nextNodeId</span></b><span lang=EN-US
+style='font-size:12.0pt;font-family:宋体;color:black'>: </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:navy'>null</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>,//</span><span
+style='font-size:12.0pt;font-family:宋体;color:black'>下一个环节<span lang=EN-US>ID<br>
+&nbsp;&nbsp;&nbsp; </span></span><b><span lang=EN-US style='font-size:12.0pt;
+font-family:宋体;color:#660E7A'>nextNodeName</span></b><span lang=EN-US
+style='font-size:12.0pt;font-family:宋体;color:black'>: </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:navy'>null</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>,//</span><span
+style='font-size:12.0pt;font-family:宋体;color:black'>下一个环节名<span lang=EN-US><br>
+&nbsp;&nbsp;&nbsp; </span></span><b><span lang=EN-US style='font-size:12.0pt;
+font-family:宋体;color:#660E7A'>operater</span></b><span lang=EN-US
+style='font-size:12.0pt;font-family:宋体;color:black'>: </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:navy'>null</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>,//</span><span
+style='font-size:12.0pt;font-family:宋体;color:black'>操作人<span lang=EN-US><br>
+&nbsp;&nbsp;&nbsp; </span></span><b><span lang=EN-US style='font-size:12.0pt;
+font-family:宋体;color:#660E7A'>applyer</span></b><span lang=EN-US
+style='font-size:12.0pt;font-family:宋体;color:black'>: </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:navy'>null</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>,//</span><span
+style='font-size:12.0pt;font-family:宋体;color:black'>申请人<span lang=EN-US><br>
+&nbsp;&nbsp;&nbsp; </span></span><b><span lang=EN-US style='font-size:12.0pt;
+font-family:宋体;color:#660E7A'>operateType</span></b><span lang=EN-US
+style='font-size:12.0pt;font-family:宋体;color:black'>: </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:green'>&quot;submit&quot;</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>,//</span><span
+style='font-size:12.0pt;font-family:宋体;color:black'>操作类型<span lang=EN-US><br>
+&nbsp;&nbsp;&nbsp; </span></span><b><span lang=EN-US style='font-size:12.0pt;
+font-family:宋体;color:#660E7A'>operateName</span></b><span lang=EN-US
+style='font-size:12.0pt;font-family:宋体;color:black'>: </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:navy'>null</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>,//</span><span
+style='font-size:12.0pt;font-family:宋体;color:black'>操作类型描述<span lang=EN-US><br>
+&nbsp;&nbsp;&nbsp; </span></span><b><span lang=EN-US style='font-size:12.0pt;
+font-family:宋体;color:#660E7A'>targetNodeId</span></b><span lang=EN-US
+style='font-size:12.0pt;font-family:宋体;color:black'>: </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:navy'>null</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>,//</span><span
+style='font-size:12.0pt;font-family:宋体;color:black'>目标节点（驳回、跳转时的节点）<span
+lang=EN-US><br>
+&nbsp;&nbsp;&nbsp; </span></span><b><span lang=EN-US style='font-size:12.0pt;
+font-family:宋体;color:#660E7A'>appendType</span></b><span lang=EN-US
+style='font-size:12.0pt;font-family:宋体;color:black'>: </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:navy'>null</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>,//</span><span
+style='font-size:12.0pt;font-family:宋体;color:black'>加签类型<span lang=EN-US><br>
+&nbsp;&nbsp;&nbsp; </span></span><b><span lang=EN-US style='font-size:12.0pt;
+font-family:宋体;color:#660E7A'>appendAuthors</span></b><span lang=EN-US
+style='font-size:12.0pt;font-family:宋体;color:black'>: </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:navy'>null</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>,//</span><span
+style='font-size:12.0pt;font-family:宋体;color:black'>加签人</span><i><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:gray'><br>
+&nbsp;&nbsp;&nbsp; </span></i><b><span lang=EN-US style='font-size:12.0pt;
+font-family:宋体;color:#660E7A'>flowComment</span></b><span lang=EN-US
+style='font-size:12.0pt;font-family:宋体;color:black'>: </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:navy'>null</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>,</span><i><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:gray'>// </span></i><i><span
+style='font-size:12.0pt;font-family:宋体;color:gray'>流程处理意见<span lang=EN-US><br>
+&nbsp;&nbsp;&nbsp; </span></span></i><b><span lang=EN-US style='font-size:12.0pt;
+font-family:宋体;color:#660E7A'>flowMessage</span></b><span lang=EN-US
+style='font-size:12.0pt;font-family:宋体;color:black'>: </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:navy'>null</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>,//</span><span
+style='font-size:12.0pt;font-family:宋体;color:black'>流程消息<span lang=EN-US><br>
+&nbsp;&nbsp;&nbsp; </span></span><b><span lang=EN-US style='font-size:12.0pt;
+font-family:宋体;color:#660E7A'>deliverUser</span></b><span lang=EN-US
+style='font-size:12.0pt;font-family:宋体;color:black'>:</span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:green'>&quot;&quot;</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>,//</span><span
+style='font-size:12.0pt;font-family:宋体;color:black'>抄送人员<span lang=EN-US><br>
+&nbsp;&nbsp;&nbsp; </span></span><b><span lang=EN-US style='font-size:12.0pt;
+font-family:宋体;color:#660E7A'>assigners</span></b><span lang=EN-US
+style='font-size:12.0pt;font-family:宋体;color:black'>: {},//</span><span
+style='font-size:12.0pt;font-family:宋体;color:black'>流程任务处理人<span lang=EN-US><br>
+&nbsp;&nbsp;&nbsp; </span></span><i><span lang=EN-US style='font-size:12.0pt;
+font-family:宋体;color:gray'>processVar: {},//</span></i><i><span
+style='font-size:12.0pt;font-family:宋体;color:gray'>流程分支<span lang=EN-US><br>
+&nbsp;&nbsp;&nbsp; </span></span></i><b><span lang=EN-US style='font-size:12.0pt;
+font-family:宋体;color:#660E7A'>bizCallClass</span></b><span lang=EN-US
+style='font-size:12.0pt;font-family:宋体;color:black'>:</span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:green'>&quot;&quot;</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>,//</span><span
+style='font-size:12.0pt;font-family:宋体;color:black'>业务回调<span lang=EN-US>class<br>
+&nbsp;&nbsp;&nbsp; </span></span><b><span lang=EN-US style='font-size:12.0pt;
+font-family:宋体;color:#660E7A'>callActTransmitVar</span></b><span lang=EN-US
+style='font-size:12.0pt;font-family:宋体;color:black'>:</span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:green'>&quot;&quot;</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>,//</span><span
+style='font-size:12.0pt;font-family:宋体;color:black'>流程关联业务规则参数<span lang=EN-US><br>
+&nbsp;&nbsp;&nbsp; </span></span><b><span lang=EN-US style='font-size:12.0pt;
+font-family:宋体;color:#660E7A'>preAssigners</span></b><span lang=EN-US
+style='font-size:12.0pt;font-family:宋体;color:black'>: {}//</span><span
+style='font-size:12.0pt;font-family:宋体;color:black'>运行时处理人<span lang=EN-US><br>
+}</span></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US>//</span></b><b><span style='font-family:
+宋体'>业务对象默认字段</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+style='font-size:12.0pt;font-family:宋体;color:#660E7A'>bizData</span></b><b><span
+style='font-size:12.0pt;font-family:宋体;color:#660E7A'>：<span lang=EN-US>{</span></span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+style='font-size:12.0pt;font-family:宋体;color:#660E7A'>&quot;afDate&quot;:&quot;2019-07-09
+18:29:19&quot;,</span></b><span lang=EN-US style='font-size:12.0pt;font-family:
+宋体;color:black'>//</span><span style='font-size:12.0pt;font-family:宋体;
+color:black'>申请日期</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+style='font-size:12.0pt;font-family:宋体;color:#660E7A'>&quot;afOrgName&quot;:&quot;</span></b><b><span
+style='font-size:12.0pt;font-family:宋体;color:#660E7A'>计算机应用研究所<span lang=EN-US>&quot;,</span></span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>//</span><span
+style='font-size:12.0pt;font-family:宋体;color:black'>申请人单位名</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+style='font-size:12.0pt;font-family:宋体;color:#660E7A'>&quot;afDepartmentCode&quot;:&quot;9012127&quot;,</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>//</span><span
+style='font-size:12.0pt;font-family:宋体;color:black'>申请人组织<span lang=EN-US>code</span></span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+style='font-size:12.0pt;font-family:宋体;color:#660E7A'>&quot;afUserCode&quot;:&quot;huangcm130100&quot;,</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>//</span><span
+style='font-size:12.0pt;font-family:宋体;color:black'>申请人用户<span lang=EN-US>code</span></span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+style='font-size:12.0pt;font-family:宋体;color:#660E7A'>&quot;afUserName&quot;:&quot;</span></b><b><span
+style='font-size:12.0pt;font-family:宋体;color:#660E7A'>黄<span lang=EN-US>1704</span>从敏<span
+lang=EN-US>&quot;,</span></span></b><span lang=EN-US style='font-size:12.0pt;
+font-family:宋体;color:black'>//</span><span style='font-size:12.0pt;font-family:
+宋体;color:black'>申请人用户名</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+style='font-size:12.0pt;font-family:宋体;color:#660E7A'>&quot;afDepartmentName&quot;:&quot;122</span></b><b><span
+style='font-size:12.0pt;font-family:宋体;color:#660E7A'>室<span lang=EN-US>&quot;,</span></span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>//</span><span
+style='font-size:12.0pt;font-family:宋体;color:black'>申请人组织名</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+style='font-size:12.0pt;font-family:宋体;color:#660E7A'>&quot;afOrgCode&quot;:&quot;9012&quot;,/</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>/</span><span
+style='font-size:12.0pt;font-family:宋体;color:black'>申请人单位<span lang=EN-US>code</span></span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+style='font-size:12.0pt;font-family:宋体;color:#660E7A'>&quot;afPhone&quot;:&quot;12345678906&quot;,/</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>/</span><span
+style='font-size:12.0pt;font-family:宋体;color:black'>申请人电话</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+style='font-size:12.0pt;font-family:宋体;color:#660E7A'>&quot;oid&quot;:&quot;2558a8e50e9e473381701053c332ff3d&quot;,</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>//</span><span
+style='font-size:12.0pt;font-family:宋体;color:black'>业务对象<span lang=EN-US>oid</span></span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+style='font-size:12.0pt;font-family:宋体;color:#660E7A'>&quot;afNo&quot;:1562668159063</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>//</span><span
+style='font-size:12.0pt;font-family:宋体;color:black'>表单单号</span></p>
+
+<p class=MsoNormal align=left style='text-align:left'><b><span lang=EN-US
+style='font-size:12.0pt;font-family:宋体;color:#660E7A'>}</span></b></p>
+
+<p class=MsoNormal><b><span style='font-family:宋体'>发起子流程可传递参数对象</span></b></p>
+
+<p class=MsoNormal align=left style='text-align:left;background:white'><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>bizFlowContext{</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;background:white'><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:olive'>@ApiModelProperty</span><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>(value = </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:green'>&quot;</span></b><b><span
+style='font-size:12.0pt;font-family:宋体;color:green'>流程定义<span lang=EN-US>key&quot;</span></span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>)<br>
+</span><b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:navy'>private
+</span></b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>String
+</span><b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:#660E7A'>actDefKey</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>;<br>
+</span><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:olive'>@ApiModelProperty</span><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>(value = </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:green'>&quot;</span></b><b><span
+style='font-size:12.0pt;font-family:宋体;color:green'>操作人<span lang=EN-US>code&quot;</span></span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>)<br>
+</span><b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:navy'>private
+</span></b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>String
+</span><b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:#660E7A'>operater</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>;<br>
+</span><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:olive'>@ApiModelProperty</span><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>(value = </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:green'>&quot;</span></b><b><span
+style='font-size:12.0pt;font-family:宋体;color:green'>操作类型<span lang=EN-US>&quot;</span></span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>)<br>
+</span><b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:navy'>private
+</span></b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>String
+</span><b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:#660E7A'>operateType
+</span></b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>=
+</span><b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:green'>&quot;submit&quot;</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>;<br>
+</span><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:olive'>@ApiModelProperty</span><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>(value = </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:green'>&quot;</span></b><b><span
+style='font-size:12.0pt;font-family:宋体;color:green'>分支变量<span lang=EN-US>&quot;</span></span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>)<br>
+</span><b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:navy'>private
+</span></b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>String
+</span><b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:#660E7A'>processVar</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>;<br>
+</span><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:olive'>@ApiModelProperty</span><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>(value = </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:green'>&quot;</span></b><b><span
+style='font-size:12.0pt;font-family:宋体;color:green'>流程批示意见<span lang=EN-US>&quot;</span></span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>)<br>
+</span><b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:navy'>private
+</span></b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>String
+</span><b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:#660E7A'>flowComment</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>;<br>
+</span><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:olive'>@ApiModelProperty</span><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>(value = </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:green'>&quot;</span></b><b><span
+style='font-size:12.0pt;font-family:宋体;color:green'>流程消息<span lang=EN-US>&quot;</span></span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>)<br>
+</span><b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:navy'>private
+</span></b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>String
+</span><b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:#660E7A'>flowMessage</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>;<br>
+</span><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:olive'>@ApiModelProperty</span><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>(value = </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:green'>&quot;</span></b><b><span
+style='font-size:12.0pt;font-family:宋体;color:green'>环节<span lang=EN-US>ID&quot;</span></span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>)<br>
+</span><b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:navy'>private
+</span></b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>String
+</span><b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:#660E7A'>nodeId</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>;<br>
+</span><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:olive'>@ApiModelProperty</span><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>(value = </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:green'>&quot;</span></b><b><span
+style='font-size:12.0pt;font-family:宋体;color:green'>初始流程传递变量 关联业务，非必填<span
+lang=EN-US>&quot;</span></span></b><span lang=EN-US style='font-size:12.0pt;
+font-family:宋体;color:black'>)<br>
+</span><b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:navy'>private
+</span></b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>String
+</span><b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:#660E7A'>callActTransmitVar</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>;<br>
+</span><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:olive'>@ApiModelProperty</span><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>(value = </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:green'>&quot;</span></b><b><span
+style='font-size:12.0pt;font-family:宋体;color:green'>业务回调<span lang=EN-US>class</span>，非必填<span
+lang=EN-US>&quot;</span></span></b><span lang=EN-US style='font-size:12.0pt;
+font-family:宋体;color:black'>)<br>
+</span><b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:navy'>private
+</span></b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>String
+</span><b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:#660E7A'>bizCallClass</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>;<br>
+</span><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:olive'>@ApiModelProperty</span><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>(value = </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:green'>&quot;</span></b><b><span
+style='font-size:12.0pt;font-family:宋体;color:green'>业务数据，非必填<span lang=EN-US>&quot;</span></span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>)<br>
+</span><b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:navy'>private
+</span></b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>String
+</span><b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:#660E7A'>bizData</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>;<br>
+</span><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:olive'>@ApiModelProperty</span><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>(value = </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:green'>&quot;</span></b><b><span
+style='font-size:12.0pt;font-family:宋体;color:green'>父流程上下文，为空说明非子流程<span
+lang=EN-US>&quot;</span></span></b><span lang=EN-US style='font-size:12.0pt;
+font-family:宋体;color:black'>)<br>
+</span><b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:navy'>private
+</span></b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>String
+</span><b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:#660E7A'>parentFlowContext</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>;<br>
+</span><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:olive'>@ApiModelProperty</span><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>(value = </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:green'>&quot;</span></b><b><span
+style='font-size:12.0pt;font-family:宋体;color:green'>父流程业务数据<span lang=EN-US>ID</span>，为空说明非子流程<span
+lang=EN-US>&quot;</span></span></b><span lang=EN-US style='font-size:12.0pt;
+font-family:宋体;color:black'>)<br>
+</span><b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:navy'>private
+</span></b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>String
+</span><b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:#660E7A'>parentBizDataId</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>;<br>
+</span><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:olive'>@ApiModelProperty</span><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>(value = </span><b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:green'>&quot;</span></b><b><span
+style='font-size:12.0pt;font-family:宋体;color:green'>子流程执行类型<span lang=EN-US>(</span>同步异步类型<span
+lang=EN-US>sync;</span>异步<span lang=EN-US>async)&quot;</span></span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>)<br>
+</span><b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:navy'>private
+</span></b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>String
+</span><b><span lang=EN-US style='font-size:12.0pt;font-family:宋体;color:#660E7A'>childrenProcessType</span></b><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>;</span></p>
+
+<p class=MsoNormal align=left style='text-align:left;background:white'><span
+lang=EN-US style='font-size:12.0pt;font-family:宋体;color:black'>}</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

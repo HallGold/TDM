@@ -1,0 +1,26 @@
+.ele-wrapper {
+  .table-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+    display: flex;
+    flex-wrap: wrap;
+
+    .cell {
+      width: 73px;
+      float: left;
+      height: 33px;
+    }
+    .cell:first-child {
+      border-right: 1px solid #c6c7cb;
+      border-bottom: 1px solid #c6c7cb;
+    }
+    .cell:last-child {
+      border-top: 1px solid #c6c7cb;
+      border-left: 1px solid #c6c7cb;
+    }
+  }
+}

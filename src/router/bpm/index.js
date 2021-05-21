@@ -1,0 +1,93 @@
+export default [
+    {
+        path: 'floweditor',
+        component: 'FlowDesinger.vue',
+        title: '流程管理'
+    },
+    {
+        path: 'GridDefinition',
+        component: 'FlowDefinition.vue',
+        title: '流程定义管理'
+    },
+    {
+        path:'processInstanceMonitor',
+        component:'ProcessInstanceMonitor.vue',
+        title:'流程实例配置'
+    },
+    {
+        path:'processTaskMonitor',
+        component:'ProcessTaskMonitor.vue',
+        title:'流程任务配置'
+    },
+    {
+        path:'processConfiguration',
+        component:'ProcessConfiguration.vue',
+        title:'流程属性配置'
+    },
+    {
+        path:'aclControl',
+        component:'AclControl.vue',
+        title:'按钮组管理'
+    },
+    {
+        path:'ac/AcRoleControl',
+        component:'ac/AcRoleControl.vue',
+        title:'流程角色'
+    },
+    {
+        path:'ac/AcRoleControlAuth',
+        component:'ac/AcRoleControlAuth.vue',
+        title:'流程角色授权'
+    },
+    {
+        path:'ext/ExtAuthorizedControl',
+        component:'ext/ExtAuthorizedControl.vue',
+        title:'我的代理'
+    },
+    {
+        path:'ext/ExtMailConfControl',
+        component:'ext/ExtMailConfControl.vue',
+        title:'邮箱配置'
+    }
+    ,{
+        path:'ext/ExtMessageTemplate',
+        component:'ext/ExtMessageTemplate.vue',
+        title:'消息模板配置'
+    },
+    {
+        path:'ext/ExtExportConf',
+        component:'ext/ExtExportConf.vue',
+        title:'流程到处配置消息记录'
+    }
+    ,
+    {
+        path:'ext/ExtAssignerRole',
+        component:'ext/ExtAssignerRole.vue',
+        title:'全局处理人预置角色'
+    },
+    {
+        path:'ext/ExtOrganization',
+        component:'ext/ExtOrganization.vue',
+        title:'指定组织'
+    },
+    {
+        path:'ext/ExtRole',
+        component:'ext/ExtRole.vue',
+        title:'指定角色'
+    },
+    {
+        path:'ext/ExtPosition',
+        component:'ext/ExtPosition.vue',
+        title:'指定岗位'
+    },
+    {
+        path:'ext/ExtPerson',
+        component:'ext/ExtPerson.vue',
+        title:'指定人员'
+    },
+    {
+        path:'ext/maint',
+        component:'ext/maint.vue',
+        title:'主页'
+    }
+]

@@ -1,0 +1,23 @@
+.full-border1px {
+    /*    min-height: 100% !*calc(100% - 2px)*!;
+        width: 100% !*calc(100% - 2px)*!;*/
+    border: 1px dashed #999;
+    box-sizing: border-box;
+    padding: 10px;
+    /*display: flex;
+    flex-direction: row;*/
+}
+
+.full-border1px:focus {
+    border: 1px dashed #66bbff;
+    outline: none;
+}
+
+.full-border1px .form-split {
+    /*height: 20px;
+    width: 100%;*/
+}
+
+.full-border1px .form-split.active {
+    background: #ffb5a8;
+}

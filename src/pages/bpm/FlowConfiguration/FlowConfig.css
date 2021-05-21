@@ -1,0 +1,54 @@
+
+.contentText {
+    color: #8c939d;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.contentText p {
+    padding-left: 30px;
+}
+
+.exam {
+    color: #5daf34;
+}
+
+.form1 {
+    width: 80%;
+    padding-left: 10%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.chec {
+    margin-left: 0px;
+}
+
+.el-table__empty-block {
+    min-height: 40px;
+}
+
+.expand {
+    background: yellow;
+}
+
+
+.table-panel {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+
+
+}
+
+.table-panel .top {
+    flex-grow: 0;
+}
+
+.table-panel .bottom {
+    flex-grow: 1;
+    position: relative;
+}

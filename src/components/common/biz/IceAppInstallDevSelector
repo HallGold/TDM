@@ -1,0 +1,101 @@
+<template>
+
+    <ice-pop-selector
+            load-url="/permission/frame_org/load_table_tree?loadDisabled=false"
+            label-prop="deptName"
+            value-prop="deptCode"
+            :lazy="false"
+            parent-prop="deptCode"
+            data-url="/permission/frame_org/load_table_next_children?loadDisabled=false&hasSelf=true"
+            textProp="deptShortName"
+            :codeProp="valueProp"
+            :selected-items="selectedDept"
+            ref="select"
+            :height="600"
+            :gridIndex="false"
+            :query="query"
+            :columns="columns"
+            :pagination="false"
+            v-on="$listeners"
+            v-bind="$attrs"
+            v-model="innerValue">
+        <!--<text>111</text>-->
+
+        <span slot="tag" slot-scope="scope">
+                {{scope.item.deptShortName}}
+        </span>
+    </ice-pop-selector>
+</template>
+
+<script>
+    import IcePopSelector from "../base/IcePopSelector";
+
+    export default {
+        name: "IceDeptSelector",
+        model: {
+            prop: 'value',
+            event: 'IceDeptSelectorchange'
+        },
+        props: {
+            value: String,
+            valueProp: {
+                type: String,
+                default: 'deptCode'
+            },
+            selectedDept: {
+                type: Array,
+                default: () => []
+            }
+        },
+        data() {
+            return {
+
+                innerValue: '',
+
+
+                query: [
+                    {type: 'input', label: '部门名称', code: 'deptShortName', value: '', exp: 'like'},
+                    {type: 'input', label: '部门编码', code: 'deptCode', value: '', exp: 'like'},
+                ],
+                columns: [
+                    {code: 'oid', hidden: true},
+                    {label: '部门名称', code: 'deptShortName', width: 220},
+                    {label: '部门编码', code: 'deptCode', width: 120},
+                    /*{label: '联系电话', code: 'phone', width: 120},
+                    {label: '部门', code: 'deptCode', width: 120},*/
+                    /*{label: '岗位', code: 'gw', width: 120}*/
+                    /*{label: '备注', code: 'remark', width: 320}*/]
+            }
+        },
+        methods: {
+            selectCannel() {
+                this.$refs.select.selectCannel();
+            },
+            openDialog() {
+                this.$refs.select.openDialog();
+            },
+            cleanColumnSelect() {
+                this.$refs.select.cleanColumnSelect();
+            }
+        },
+        computed: {},
+        watch: {
+            value() {
+                this.innerValue = this.value;
+            },
+            innerValue() {
+                this.$emit("IceDeptSelectorchange", this.innerValue);
+            },
+        },
+        mounted() {
+            this.innerValue = this.value;
+        },
+        components: {IcePopSelector}
+    }
+
+</script>
+
+
+<style scoped>
+
+</style>

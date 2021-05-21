@@ -1,0 +1,31 @@
+.form-label-bar {
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  margin-left: 1px;
+  margin-top: 1px;
+  display: flex;
+  border: 1px dashed #fff;
+
+  .label {
+    width: 80px;
+    height: 100%;
+    display: flex;
+    text-align: right;
+    align-items: center;
+    justify-content: flex-end;
+    overflow: hidden;
+  }
+
+  .item-content {
+    flex-grow: 1;
+    height: 100%;
+    padding: 9px;
+    box-sizing: border-box;
+  }
+
+}
+
+.form-label-bar:focus {
+  border: 1px dashed #66bbff;
+  outline: none;
+}

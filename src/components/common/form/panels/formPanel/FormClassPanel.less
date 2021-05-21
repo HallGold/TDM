@@ -1,0 +1,50 @@
+.form-panel {
+  padding: 10px !important;
+  border: 1px dashed #999;
+  /*  margin-bottom: 20px;*/
+
+  .background {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    box-sizing: border-box;
+    /*padding: 5px;*/ /*没有padding*/
+    //  background: #13ce66;
+    /*  display: flex;
+      flex-wrap: wrap;*/
+    z-index: 0;
+    overflow: hidden;
+    border-bottom: 1px dashed #f2f4ff;
+    border-right: 1px dashed #f2f4ff;
+
+    .item {
+      border-left: 1px dashed #f2f4ff;
+      border-top: 1px dashed #f2f4ff;
+      /* width: 296px;*/
+      float: left;
+      height: 59px;
+      background: #ffffff;;
+    }
+
+  }
+}
+
+.form-panel:focus {
+  border: 1px dashed #66bbff;
+  outline: none;
+}
+
+.ele-wrapper {
+  .form-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 100%;
+    z-index: 0;
+    border-bottom: 1px solid #c6c7cb;
+    line-height: 20px;
+  }
+}

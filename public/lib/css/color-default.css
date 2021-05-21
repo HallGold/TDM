@@ -1,0 +1,31 @@
+.header {
+    background: #0091b0;
+}
+
+.login-wrap {
+    background: rgba(56, 157, 170, 0.82);;
+}
+
+.plugins-tips {
+    background: #f2f2f2;
+}
+
+.plugins-tips a {
+    color: #B7462A;
+}
+
+.el-upload {
+    flex-grow: 1;
+}
+
+.el-upload--text em {
+    color: #B7462A;
+}
+.pure-button {
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    border-radius: 3px;
+}

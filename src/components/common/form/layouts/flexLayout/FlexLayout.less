@@ -1,0 +1,53 @@
+.flex-layout {
+
+    width: 100%;
+    height: 100%;
+    flex-grow: 1;
+    display: flex;
+    /*background: #fae7ff;*/
+
+    .aside {
+        flex-grow: 0;
+        /*background: #fae7ff;*/
+        overflow: auto;
+        position: relative;
+        background: #fffef6;
+    }
+
+    .main {
+        flex-grow: 1;
+        /*background: #fffeee;*/
+        overflow: auto;
+        position: relative;
+        background: #fffef6;
+    }
+
+}
+
+.flex-layout.render {
+    background: #fff;
+    .aside {
+        background: none;
+    }
+    .main {
+        background: none;
+        margin: 0 0;
+    }
+}
+
+.flex-layout.full-border1px {
+    /*    min-height: 100% !*calc(100% - 2px)*!;
+        width: 100% !*calc(100% - 2px)*!;*/
+    border: 1px dashed #999;
+    box-sizing: border-box;
+    padding: 10px;
+    /*display: flex;
+    flex-direction: row;*/
+}
+
+.flex-layout.full-border1px:focus {
+    border: 1px dashed #66bbff;
+    outline: none;
+}
+
+

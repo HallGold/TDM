@@ -1,0 +1,72 @@
+{
+  "id": "1927834",
+  "name": "协同制造平台",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "743804",
+      "name": "项目",
+      "font_class": "047stack",
+      "unicode": "e69b",
+      "unicode_decimal": 59035
+    },
+    {
+      "icon_id": "11396965",
+      "name": "已办",
+      "font_class": "yiban",
+      "unicode": "e646",
+      "unicode_decimal": 58950
+    },
+    {
+      "icon_id": "844277",
+      "name": "科研",
+      "font_class": "keyan",
+      "unicode": "e669",
+      "unicode_decimal": 58985
+    },
+    {
+      "icon_id": "1511232",
+      "name": "通知",
+      "font_class": "tongzhi",
+      "unicode": "e626",
+      "unicode_decimal": 58918
+    },
+    {
+      "icon_id": "1924684",
+      "name": "生产",
+      "font_class": "red-shengchan",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "4721185",
+      "name": "申请",
+      "font_class": "shenqing",
+      "unicode": "e665",
+      "unicode_decimal": 58981
+    },
+    {
+      "icon_id": "6915709",
+      "name": "项目",
+      "font_class": "project",
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
+      "icon_id": "7042807",
+      "name": "已办理",
+      "font_class": "yibanli",
+      "unicode": "e670",
+      "unicode_decimal": 58992
+    },
+    {
+      "icon_id": "10150377",
+      "name": "待办",
+      "font_class": "schedule",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    }
+  ]
+}

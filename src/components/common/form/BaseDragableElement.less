@@ -1,0 +1,27 @@
+.form-panel {
+  padding: 10px !important;
+  border: 1px dashed #999;
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  .dragable {
+    color: #939393;
+    position: absolute;
+    background: rgb(255, 255, 249);
+    height: 24px;
+    width: 100%;
+    line-height: 24px;
+    font-size: 20px;
+    left: 0px;
+    top: 0px;
+    z-index: 5;
+    cursor: move;
+  }
+
+}
+
+.form-panel:focus {
+  border: 1px dashed #66bbff;
+  outline: none;
+}
